@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+  <h3>Add Sale</h3>
+  <form method="POST">
+    <div class="mb-3">
+      <label>Customer</label>
+      <select name="customer_id" class="form-select" required>
+        {% for c in customers %}
+          <option value="{{ c.id }}">{{ c.name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label>Product</label>
+      <select name="product_id" class="form-select" required>
+        {% for p in products %}
+          <option value="{{ p.id }}">{{ p.name }} (KSh {{ "%.2f"|format(p.price) }})</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label>Quantity</label>
+      <input name="quantity" type="number" class="form-control" required min="1">
+    </div>
+
+    <button class="btn btn-success">Record Sale</button>
+  </form>
+</div>
+{% endblock %}

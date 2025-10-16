@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reports Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Business Management Reports</h1>
+
+    <div style="display:flex; gap:40px;">
+        <div>
+            <h3>Total Customers</h3>
+            <p>{{ total_customers }}</p>
+        </div>
+        <div>
+            <h3>Total Products</h3>
+            <p>{{ total_products }}</p>
+        </div>
+        <div>
+            <h3>Total Orders</h3>
+            <p>{{ total_orders }}</p>
+        </div>
+        <div>
+            <h3>Total Revenue</h3>
+            <p>Ksh {{ "%.2f"|format(total_revenue) }}</p>
+        </div>
+    </div>
+
+    <h2>Orders per Product</h2>
+    <canvas id="ordersChart" width="400" height="200"></canvas>
+
+    <script>
+        const ctx = document.getElementById('ordersChart');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: {{ labels | tojson }},
+                datasets: [{
+                    label: 'Orders per Product',
+                    data: {{ values | tojson }},
+                    backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                }]
+            },
+            options: {
+                scales: {
+                    y: { beginAtZero: true }
+                }
+            }
+        });
+    </script>
+
+    <br>
+    <a href="{{ url_for('dashboard') }}">← Back to Dashboard</a>
+</body>
+</html>

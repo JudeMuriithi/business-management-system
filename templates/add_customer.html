@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+  <h3>Add Customer</h3>
+  <form method="POST">
+    <input name="name" class="form-control mb-2" placeholder="Name" required>
+    <input name="email" class="form-control mb-2" placeholder="Email" required>
+    <input name="phone" class="form-control mb-2" placeholder="Phone">
+    <input name="address" class="form-control mb-3" placeholder="Address">
+    <button class="btn btn-success">Add Customer</button>
+  </form>
+</div>
+{% endblock %}

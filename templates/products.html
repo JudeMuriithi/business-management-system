@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h3>Products</h3>
+    <a href="{{ url_for('add_product') }}" class="btn btn-primary">Add Product</a>
+  </div>
+
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <div class="alert alert-success">{{ messages[0] }}</div>
+    {% endif %}
+  {% endwith %}
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th><th>Name</th><th>Category</th><th>Price (KSh)</th><th>Stock</th><th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for p in products %}
+      <tr>
+        <td>{{ p.id }}</td>
+        <td>{{ p.name }}</td>
+        <td>{{ p.category }}</td>
+        <td>{{ "%.2f"|format(p.price) }}</td>
+        <td>{{ p.stock }}</td>
+        <td>
+          <a href="{{ url_for('edit_product', id=p.id) }}" class="btn btn-sm btn-warning">Edit</a>
+          <a href="{{ url_for('delete_product', id=p.id) }}" class="btn btn-sm btn-danger">Delete</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

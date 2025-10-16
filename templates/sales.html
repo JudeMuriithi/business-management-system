@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h3>Sales</h3>
+    <a href="{{ url_for('add_sale') }}" class="btn btn-primary">Add Sale</a>
+  </div>
+
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <div class="alert alert-success">{{ messages[0] }}</div>
+    {% endif %}
+  {% endwith %}
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th><th>Customer</th><th>Product</th><th>Quantity</th><th>Total (KSh)</th><th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for s in sales %}
+      <tr>
+        <td>{{ s.id }}</td>
+        <td>{{ s.customer.name }}</td>
+        <td>{{ s.product.name }}</td>
+        <td>{{ s.quantity }}</td>
+        <td>{{ "%.2f"|format(s.total_price) }}</td>
+        <td>{{ s.date.strftime('%Y-%m-%d %H:%M') }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

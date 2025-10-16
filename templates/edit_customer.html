@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+  <h3>Edit Customer</h3>
+  <form method="POST">
+    <input name="name" class="form-control mb-2" value="{{ customer.name }}" required>
+    <input name="email" class="form-control mb-2" value="{{ customer.email }}" required>
+    <input name="phone" class="form-control mb-2" value="{{ customer.phone }}">
+    <input name="address" class="form-control mb-3" value="{{ customer.address }}">
+    <button class="btn btn-primary">Update</button>
+  </form>
+</div>
+{% endblock %}

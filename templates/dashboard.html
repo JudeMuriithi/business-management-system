@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-4">Welcome, {{ user.username }} 👋</h2>
+    <p class="mb-5">Use the cards below to quickly navigate through your Business Management System.</p>
+
+    <div class="row g-4">
+        <!-- Customers Card -->
+        <div class="col-md-3">
+            <div class="card shadow-sm h-100">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Customers</h5>
+                    <p class="card-text">View and manage all your customers.</p>
+                    <a href="{{ url_for('customers') }}" class="btn btn-primary">Go</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Products Card -->
+        <div class="col-md-3">
+            <div class="card shadow-sm h-100">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Products</h5>
+                    <p class="card-text">View and manage all your products.</p>
+                    <a href="{{ url_for('products') }}" class="btn btn-success">Go</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Orders Card -->
+        <div class="col-md-3">
+            <div class="card shadow-sm h-100">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Orders</h5>
+                    <p class="card-text">View and add new orders quickly.</p>
+                    <a href="{{ url_for('orders') }}" class="btn btn-warning text-dark">Go</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reports Card -->
+        <div class="col-md-3">
+            <div class="card shadow-sm h-100">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Reports</h5>
+                    <p class="card-text">See business performance and sales stats.</p>
+                    <a href="{{ url_for('reports') }}" class="btn btn-danger">Go</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
