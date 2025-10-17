@@ -1,7 +1,7 @@
 # Business Management System
 
 A **web-based Business Management System** built with **Flask**, **SQLite**, and **Bootstrap 5**.  
-This project allows you to manage **customers, products, orders**, and view **sales reports**. Perfect for showcasing full-stack Python web development skills.
+This project allows you to manage **customers, products, orders**, and view **sales reports**.
 
 ---
 
