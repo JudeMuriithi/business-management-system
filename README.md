@@ -34,7 +34,6 @@ This project allows you to manage **customers, products, orders**, and view **sa
 
 ![Reports](screenshots/reports.png)
 
-> *Note: Replace the `screenshots/` images with your own screenshots of the app.*
 
 ---
 
